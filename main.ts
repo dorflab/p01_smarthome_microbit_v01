@@ -28,23 +28,35 @@ basic.forever(function () {
     basic.pause(200)
 })
 basic.forever(function () {
+    if (pins.digitalReadPin(DigitalPin.P15) == 1) {
+        basic.showIcon(IconNames.Yes)
+    } else {
+        basic.showIcon(IconNames.Happy)
+    }
+})
+basic.forever(function () {
     R = 0
     G = 0
     B = 0
     strip.clear()
+    R = 0
+    G = 0
     B = 255
     rgb_index = 0
     strip.setPixelColor(rgb_index, neopixel.rgb(R, G, B))
+    R = 255
+    G = 0
     B = 0
-    G = 255
     rgb_index = 1
     strip.setPixelColor(rgb_index, neopixel.rgb(R, G, B))
-    G = 0
-    R = 255
+    R = 0
+    G = 255
+    B = 0
     rgb_index = 2
     strip.setPixelColor(rgb_index, neopixel.rgb(R, G, B))
-    B = 100
-    R = 100
+    R = 255
+    G = 255
+    B = 255
     rgb_index = 3
     strip.setPixelColor(rgb_index, neopixel.rgb(R, G, B))
     basic.pause(500)
