@@ -41,22 +41,22 @@ basic.forever(function () {
     strip.clear()
     R = 0
     G = 0
-    B = 255
+    B = 100
     rgb_index = 0
     strip.setPixelColor(rgb_index, neopixel.rgb(R, G, B))
-    R = 255
+    R = 100
     G = 0
     B = 0
     rgb_index = 1
     strip.setPixelColor(rgb_index, neopixel.rgb(R, G, B))
     R = 0
-    G = 255
+    G = 100
     B = 0
     rgb_index = 2
     strip.setPixelColor(rgb_index, neopixel.rgb(R, G, B))
-    R = 255
-    G = 255
-    B = 255
+    R = 100
+    G = 100
+    B = 100
     rgb_index = 3
     strip.setPixelColor(rgb_index, neopixel.rgb(R, G, B))
     basic.pause(500)
