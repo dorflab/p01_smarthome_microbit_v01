@@ -1,3 +1,15 @@
+input.onButtonPressed(Button.A, function () {
+    pins.servoWritePin(AnalogPin.P8, 180)
+    basic.pause(10000)
+    pins.servoWritePin(AnalogPin.P8, 0)
+    basic.pause(2000)
+})
+input.onButtonPressed(Button.B, function () {
+    pins.servoWritePin(AnalogPin.P9, 180)
+    basic.pause(15000)
+    pins.servoWritePin(AnalogPin.P9, 0)
+    basic.pause(2000)
+})
 let rgb_index = 0
 let B = 0
 let G = 0
@@ -6,6 +18,7 @@ basic.showIcon(IconNames.Happy)
 pins.digitalWritePin(DigitalPin.P16, 0)
 let strip = neopixel.create(DigitalPin.P14, 4, NeoPixelMode.RGB)
 pins.servoWritePin(AnalogPin.P8, 0)
+pins.servoWritePin(AnalogPin.P9, 0)
 basic.forever(function () {
     pins.analogWritePin(AnalogPin.P16, 1000)
     basic.pause(200)
@@ -31,12 +44,8 @@ basic.forever(function () {
 basic.forever(function () {
     if (pins.digitalReadPin(DigitalPin.P15) == 1) {
         basic.showIcon(IconNames.Yes)
-        pins.servoWritePin(AnalogPin.P8, 180)
-        basic.pause(2000)
     } else {
         basic.showIcon(IconNames.Happy)
-        pins.servoWritePin(AnalogPin.P8, 0)
-        basic.pause(2000)
     }
 })
 basic.forever(function () {
