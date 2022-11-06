@@ -29,6 +29,11 @@ pins.servoWritePin(AnalogPin.P8, 0)
 pins.servoWritePin(AnalogPin.P9, 0)
 pins.digitalWritePin(DigitalPin.P12, 0)
 pins.digitalWritePin(DigitalPin.P13, 0)
+I2C_LCD1602.LcdInit(39)
+I2C_LCD1602.on()
+I2C_LCD1602.BacklightOn()
+I2C_LCD1602.ShowString("Willkommen in", 1, 0)
+I2C_LCD1602.ShowString("Mikas Haus", 3, 1)
 basic.forever(function () {
     pins.analogWritePin(AnalogPin.P16, 1000)
     basic.pause(200)
@@ -54,8 +59,14 @@ basic.forever(function () {
 basic.forever(function () {
     if (pins.digitalReadPin(DigitalPin.P15) == 1) {
         basic.showIcon(IconNames.Yes)
+        I2C_LCD1602.BacklightOn()
+        I2C_LCD1602.clear()
+        basic.pause(100)
+        I2C_LCD1602.ShowString("Hallo", 5, 0)
     } else {
         basic.showIcon(IconNames.Happy)
+        I2C_LCD1602.clear()
+        I2C_LCD1602.BacklightOff()
     }
 })
 basic.forever(function () {
