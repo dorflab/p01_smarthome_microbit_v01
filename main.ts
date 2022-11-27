@@ -97,3 +97,15 @@ basic.forever(function () {
     basic.pause(500)
     strip.show()
 })
+basic.forever(function () {
+    dht11_dht22.queryData(
+    DHTtype.DHT11,
+    DigitalPin.P2,
+    true,
+    false,
+    true
+    )
+    serial.writeValue("Temperatur", dht11_dht22.readData(dataType.temperature))
+    serial.writeValue("Luftfeuchte", dht11_dht22.readData(dataType.humidity))
+    basic.pause(1000)
+})
