@@ -66,6 +66,7 @@ basic.forever(function () {
 })
 basic.forever(function () {
     serial.writeValue("Rauch", pins.analogReadPin(AnalogPin.P0))
+    serial.writeValue("Gas", pins.digitalReadPin(DigitalPin.P1))
     basic.pause(1000)
 })
 basic.forever(function () {
