@@ -29,13 +29,12 @@ pins.servoWritePin(AnalogPin.P8, 0)
 pins.servoWritePin(AnalogPin.P9, 0)
 pins.digitalWritePin(DigitalPin.P12, 0)
 pins.digitalWritePin(DigitalPin.P13, 0)
+serial.redirectToUSB()
 I2C_LCD1602.LcdInit(39)
 I2C_LCD1602.on()
 I2C_LCD1602.BacklightOn()
 I2C_LCD1602.ShowString("Willkommen in", 1, 0)
 I2C_LCD1602.ShowString("Mikas Haus", 3, 1)
-basic.pause(60000)
-I2C_LCD1602.BacklightOff()
 basic.forever(function () {
     pins.analogWritePin(AnalogPin.P16, 1000)
     basic.pause(200)
@@ -64,6 +63,10 @@ basic.forever(function () {
     } else {
         basic.showIcon(IconNames.Happy)
     }
+})
+basic.forever(function () {
+    serial.writeValue("Rauch", pins.analogReadPin(AnalogPin.P0))
+    basic.pause(1000)
 })
 basic.forever(function () {
     R = 0
